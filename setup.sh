@@ -120,7 +120,7 @@ install_oh_my_zsh() {
 
     if [ ! is_oh_my_zsh_installed ]
     then
-		echo -e "  $INSTALLING_PREFIX Installing $OH_MY_ZSH"
+        echo -e "  $INSTALLING_PREFIX Installing $OH_MY_ZSH"
 
         # Install Oh My Zsh
         sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -130,6 +130,9 @@ install_oh_my_zsh() {
 
         # Download plugin to have suggestions
         git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+        
+        # Override settings
+        curl -s https://raw.githubusercontent.com/pallocchi/mac/master/config/.zshrc --output $HOME/.zshrc
     
     else
         echo -e "  $SKIPPING_PREFIX Skipping $OH_MY_ZSH (already installed)"
