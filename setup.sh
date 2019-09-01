@@ -1,5 +1,7 @@
 #!/bin/bash
 
+MY_MAC_HOME="$HOME/.my-mac"
+
 # Software to install
 
 GOOGLE_CHROME='Google Chrome'
@@ -135,10 +137,10 @@ install_oh_my_zsh() {
         npm install --global pure-prompt
 
         # Override settings
-        curl -s https://raw.githubusercontent.com/pallocchi/mac/master/config/.zshrc --output $HOME/.zshrc
+        ln -s $MY_MAC_HOME/config/.zshrc $HOME/.zshrc
 
         # Download custom functions
-        curl -s https://raw.githubusercontent.com/pallocchi/mac/master/tools.zsh --output ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/tools.zsh
+        ln -s $MY_MAC_HOME/tools.zsh ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/tools.zsh
     
     else
         echo -e "  $SKIPPING_PREFIX Skipping $OH_MY_ZSH (already installed)"
