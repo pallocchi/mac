@@ -131,8 +131,14 @@ install_oh_my_zsh() {
         # Download plugin to have suggestions
         git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
         
+        # Install Pure ZSH prompt
+        npm install --global pure-prompt
+
         # Override settings
         curl -s https://raw.githubusercontent.com/pallocchi/mac/master/config/.zshrc --output $HOME/.zshrc
+
+        # Download custom functions
+        curl -s https://raw.githubusercontent.com/pallocchi/mac/master/tools.zsh --output ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/tools.zsh
     
     else
         echo -e "  $SKIPPING_PREFIX Skipping $OH_MY_ZSH (already installed)"

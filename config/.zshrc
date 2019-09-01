@@ -1,3 +1,6 @@
+# Uncomment to profile
+#zmodload zsh/zprof
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -8,7 +11,8 @@ export ZSH="/Users/pablopallocchi/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="robbyrussell"
+# Now is empty because Pure ZSH prompt is enableds
+ZSH_THEME=""
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -72,6 +76,11 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
+# Enable Pure ZSH prompt
+# https://github.com/sindresorhus/pure
+autoload -U promptinit; promptinit
+prompt pure
+
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -99,4 +108,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias jdks="/usr/libexec/java_home -V"
 alias jdk8="export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)"
-alias jdk11="export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
+#alias jdk11="export JAVA_HOME=$(/usr/libexec/java_home -v 11)"
+
+# Uncomment to profile
+#zprof
