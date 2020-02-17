@@ -51,7 +51,7 @@ install_intellij_idea() {
     if ! is_intellij_idea_installed
     then
         echo -e "  $INSTALLING_PREFIX Installing $INTELLIJ_IDEA"
-        brew cask install intellij-idea
+        brew cask install intellij-idea-ce
     else
         echo -e "  $SKIPPING_PREFIX Skipping $INTELLIJ_IDEA (already installed)"
     fi
